@@ -1,0 +1,19 @@
+<ion-view title="連線狀態查詢">
+  <ion-content>
+    <ion-nav-buttons side="right">
+        <button class="button icon-left ion-loop" ng-click="refresh()">Refresh</button>
+    </ion-nav-buttons>
+
+    <div class="card" ng-show="data.error">
+        <div class="item item-text-wrap assertive">查詢錯誤:{{error}}</div>
+    </div>
+
+    <div class="list" ng-hide="data.error">
+        <li class="item" ng-repeat="item in data.connectionList">
+            {{item.name}}
+            <span class="item-note">{{item.duration}}</span>
+        </li>
+    </div>
+
+  </ion-content>
+</ion-view>

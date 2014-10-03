@@ -1,0 +1,28 @@
+<ion-view title="Wifi連線設定">
+    <ion-content>
+        <ion-nav-buttons side="right">
+            <button class="button icon-left ion-loop" ng-click="refresh()">Refresh</button>
+        </ion-nav-buttons>
+
+        <div class="card" ng-show="data.error">
+            <div class="item item-text-wrap assertive">查詢錯誤:{{data.error}}</div>
+        </div>
+
+        <div class="padding" ng-hide="data.error">
+            <button class="button button-block button-positive icon-right ion-locked" ng-click="toggleFilterMode()" ng-show="data.filterMode==1">
+                限制連線模式
+            </button>
+            <button class="button button-block button-assertive icon-right ion-unlocked" ng-click="toggleFilterMode()" ng-show="data.filterMode==0" >
+                開放連線模式
+            </button>
+        </div>
+
+        <div class="list" ng-hide="data.error">
+            <div ng-repeat="device in data.deviceList" class="item item-icon-right">
+                {{device.name}}
+                <i ng-class="getConnectionStatusIconClass(device)" ng-click="toggleConnectionStatus(device)"></i>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

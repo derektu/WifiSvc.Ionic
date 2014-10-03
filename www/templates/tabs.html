@@ -1,0 +1,18 @@
+<!-- 
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top">
+
+    <!-- Setting tab -->
+    <ion-tab title="連線設定" icon="icon ion-gear-b" href="#/tab/setting">
+        <ion-nav-view name="tab-setting"></ion-nav-view>
+    </ion-tab>
+
+    <!-- Status Tab -->
+    <ion-tab title="上網狀態查詢" icon="icon ion-connection-bars" href="#/tab/status">
+        <ion-nav-view name="tab-status"></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>

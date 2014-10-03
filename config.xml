@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.ionic122618" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>wifiApp</name>
+  <description>
+        WifiApp.
+  </description>
+  <author email="hi@ionicframework" href="http://ionicframework.com/">
+      Ionic Framework Team
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+
+  <platform name="ios">
+
+    <!-- iOS 7.0+ -->
+    <!-- iPhone / iPod Touch -->
+    <icon src="icons/ios/icon-60.png" width="60" height="60" />
+    <icon src="icons/ios/icon-60@2x.png" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="icons/ios/icon-76.png" width="76" height="76" />
+    <icon src="icons/ios/icon-76@2x.png" width="152" height="152" />
+
+    <!-- iOS 6.1 -->
+    <!-- Spotlight Icon -->
+    <icon src="icons/ios/icon-40.png" width="40" height="40" />
+    <icon src="icons/ios/icon-40@2x.png" width="80" height="80" />
+
+    <!-- iPhone / iPod Touch -->
+    <icon src="icons/ios/icon.png" width="57" height="57" />
+    <icon src="icons/ios/icon@2x.png" width="114" height="114" />
+
+    <!-- iPad -->
+    <icon src="icons/ios/icon-72.png" width="72" height="72" />
+    <icon src="icons/ios/icon-72@2x.png" width="144" height="144" />
+
+    <!-- iPhone Spotlight and Settings Icon -->
+    <icon src="icons/ios/icon-small.png" width="29" height="29" />
+    <icon src="icons/ios/icon-small@2x.png" width="58" height="58" />
+
+    <!-- iPad Spotlight and Settings Icon -->
+    <icon src="icons/ios/icon-50.png" width="50" height="50" />
+    <icon src="icons/ios/icon-50@2x.png" width="100" height="100" />
+
+    <splash src="screen/ios/Default~iphone.png" width="320" height="480"/>
+    <splash src="screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+    <splash src="screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+    <splash src="screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+    <splash src="screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+    <splash src="screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+    <splash src="screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+  </platform>  
+
+  <platform name="android">
+    <icon src="icons/android/icon.png" />
+    <icon src="icons/android/icon.png" density="ldpi" />
+    <icon src="icons/android/icon.png" density="mdpi" />
+    <icon src="icons/android/icon.png" density="hdpi" />
+    <icon src="icons/android/icon.png" density="xhdpi" />
+    <splash src="screen/android/1280x720.png" density="land-hdpi"/>
+    <splash src="screen/android/1280x720.png" density="land-ldpi"/>
+    <splash src="screen/android/1280x720.png" density="land-mdpi"/>
+    <splash src="screen/android/1280x720.png" density="land-xhdpi"/>
+    <splash src="screen/android/720x1280.png" density="port-hdpi"/>
+    <splash src="screen/android/720x1280.png" density="port-ldpi"/>
+    <splash src="screen/android/720x1280.png" density="port-mdpi"/>
+    <splash src="screen/android/720x1280.png" density="port-xhdpi"/>
+ </platform>  
+
+</widget>
