@@ -2,20 +2,24 @@
  * Created by Derek on 2014/9/30.
  */
 
+// TODO: reques timeout
+// TODO: spinner可以被cancel (目前的會block住整個screen)
+
 angular.module('starter.controllers')
 
-.constant('server', 'http://192.168.11.2:7070')
+//.constant('server', 'http://192.168.11.2:7070')
+//.constant('server', 'http://localhost:7070')
+.constant('server', 'http://220.134.121.195/wifisvc')
+
 .controller('SettingCtrl', function($scope, $http, $ionicLoading, $ionicPopup, $ionicScrollDelegate, server) {
     $scope.data = {deviceList: [], filterMode: -1, error: null};
 
     $scope.refresh = function() {
         $scope.startSpinner();
 
-        var url = server + '/api/getmacfilterlist2?callback=JSON_CALLBACK';
+        var url = server + '/api/getmacfilterlist2';
 
-        // TODO: add user/password auth header
-        //
-        $http.jsonp(url)
+        $http.get(url)
             .success(function(result) {
                 $scope.data.deviceList = result.deviceList;
                 $scope.data.filterMode = result.filterMode;
@@ -69,12 +73,10 @@ angular.module('starter.controllers')
     $scope.enableConnectionStatus = function(device, enable, autorevert) {
         $scope.startSpinner();
 
-        var urlFormat = server + '/api/enablemacfilter?callback=JSON_CALLBACK&mac=%s&enable=%d&autorevert=%d';
+        var urlFormat = server + '/api/enablemacfilter?mac=%s&enable=%d&autorevert=%d';
         var url = sprintf(urlFormat, device.mac, enable ? 1:0, autorevert);
 
-        // TODO: add user/password auth header
-        //
-        $http.jsonp(url)
+        $http.get(url)
             .success(function(result) {
                 $scope.stopSpinner();
                 $scope.showWaitMsg();
@@ -93,11 +95,9 @@ angular.module('starter.controllers')
             }
         ).then(function(result) {
             if (result) {
-                var url = server + '/api/setmacfiltermode?callback=JSON_CALLBACK&mode=' + ($scope.data.filterMode == 1 ? '0':'1');
+                var url = server + '/api/setmacfiltermode?mode=' + ($scope.data.filterMode == 1 ? '0':'1');
 
-                // TODO: add user/password auth header
-                //
-                $http.jsonp(url)
+                $http.get(url)
                     .success(function(result) {
                         $scope.stopSpinner();
                         $scope.showWaitMsg();
@@ -132,3 +132,5 @@ angular.module('starter.controllers')
     $scope.refresh();
 
 });
+
+

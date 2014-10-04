@@ -1,18 +1,24 @@
 /**
  * Created by Derek on 2014/9/30.
  */
+// TODO: reques timeout
+// TODO: spinner可以被cancel (目前的會block住整個screen)
 
-angular.module('starter.controllers').controller('StatusCtrl', function($scope, $http, $ionicLoading, $ionicScrollDelegate) {
+angular.module('starter.controllers')
+
+//.constant('server', 'http://192.168.11.2:7070')
+//.constant('server', 'http://localhost:7070')
+.constant('server', 'http://220.134.121.195/wifisvc')
+
+.controller('StatusCtrl', function($scope, $http, $ionicLoading, $ionicScrollDelegate, server) {
     $scope.data = { connectionList: [], error: null };
 
     $scope.refresh = function() {
         $scope.startSpinner();
 
-        var url = 'http://192.168.11.2:7070/api/getconnectionlist?callback=JSON_CALLBACK';
+        var url = server + '/api/getconnectionlist';
 
-        // TODO: add user/password auth header
-        //
-        $http.jsonp(url)
+        $http.get(url)
             .success(function(connectionList) {
                 $scope.data.connectionList = connectionList;
                 $scope.data.error = null;
